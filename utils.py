@@ -23,12 +23,12 @@ def resize_image(img, max_width=500):
 from matplotlib import pyplot as plt
 
 
-def show_image(img):
-    plt.axis("off")
-    if isinstance(img, str):
-        img = cv2.imread(img)
-    plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
-    # plt.show()
+# def show_image(img):
+#     plt.axis("off")
+#     if isinstance(img, str):
+#         img = cv2.imread(img)
+#     plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+#     # plt.show()
 
 
 from ultralytics.models import YOLO
@@ -55,8 +55,8 @@ def detect_and_extract_lp_text(path, show_cropped_image=True):
     xmin, ymin = bbox[0][:2].astype(int)
     xmax, ymax = bbox[0][2:4].astype(int)
     cropped_img = img[ymin:ymax, xmin:xmax]
-    if show_cropped_image:
-        show_image(cropped_img)
+    # if show_cropped_image:
+    #     show_image(cropped_img)
 
     lp_text = extract_license_text(cv2.cvtColor(cropped_img, cv2.COLOR_BGR2GRAY))
     # print(lp_text)
