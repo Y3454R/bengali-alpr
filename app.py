@@ -34,13 +34,14 @@ def extract_lp_text():
     file.save(file_path)
 
     try:
-        lp_text = utils.detect_and_extract_lp_text(file_path)
+        lp_text, bbox = utils.detect_and_extract_lp_text(file_path)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     finally:
         os.remove(file_path)  # Cleanup
 
-    return jsonify({"lp_text": lp_text})
+    # print("lp_text: ", lp_text)
+    return jsonify({"lp_text": lp_text, "bbox": bbox})
 
 
 if __name__ == "__main__":
