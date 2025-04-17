@@ -15,8 +15,8 @@ def resize_image(img, max_width=500):
     if img is None:
         print(f"resize_image(): img is null")
         return
-    if img.shape[0] > maxwidth:
-        img = imutils.resize(img, maxwidth)
+    if img.shape[0] > max_width:
+        img = imutils.resize(img, max_width)
     return img
 
 
@@ -51,6 +51,8 @@ def detect_and_extract_lp_text(path, show_cropped_image=True):
     img = load_image(path)
 
     detection_result = detect_license_plate(img)
+    if detection_result.boxes.xyxy.shape[0] == 0:
+        return None, None
     bbox = detection_result.boxes.data.numpy()
     xmin, ymin = bbox[0][:2].astype(int)
     xmax, ymax = bbox[0][2:4].astype(int)
