@@ -44,7 +44,24 @@ chmod +x stop-anpr-server.sh
    ```
 
 2. Download models from: [models](https://drive.google.com/drive/folders/1n3Sp-xZXYxJAzpsFkoe7tEOxvTA_gYO-?usp=sharing)
-3. Place the model files in the `models/` directory
+3. Place the model files in the `models/` directory with the following structure:
+
+```
+models/
+├── yolo.pt
+└── EasyOCR/
+    ├── models/
+    │   ├── bn_license_tps.pth
+    │   └── craft_mlt_25k.pth
+    └── user_network/
+        ├── bn_license_tps.py
+        ├── bn_license_tps.yaml
+        └── modules/
+            ├── feature_extraction.py
+            ├── prediction.py
+            ├── sequence_modeling.py
+            └── transformation.py
+```
 
 ### Build and Run with Docker (Manual)
 
