@@ -30,8 +30,21 @@ chmod +x stop-anpr-server.sh
 
 ### Prerequisites
 
-1. Download models from: [models](https://drive.google.com/drive/folders/1n3Sp-xZXYxJAzpsFkoe7tEOxvTA_gYO-?usp=sharing)
-2. Place the model files in the `models/` directory
+1. **Docker** must be installed
+
+   ```bash
+   # macOS (install Docker Desktop)
+   # Download from: https://www.docker.com/products/docker-desktop
+
+   # Ubuntu/Linux
+   sudo apt-get update
+   sudo apt-get install docker.io
+   sudo systemctl start docker
+   sudo systemctl enable docker
+   ```
+
+2. Download models from: [models](https://drive.google.com/drive/folders/1n3Sp-xZXYxJAzpsFkoe7tEOxvTA_gYO-?usp=sharing)
+3. Place the model files in the `models/` directory
 
 ### Build and Run with Docker (Manual)
 
