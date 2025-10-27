@@ -1,6 +1,12 @@
-# RTMP Streaming Setup Guide
+# RTMP Streaming Setup Guide - ANPR Demo
 
-Complete guide for setting up RTMP streaming with MediaMTX and ffmpeg.
+Complete guide for setting up RTMP streaming with MediaMTX and ffmpeg for the Bengali ALPR demo.
+
+## Repository
+
+**Demo Images Repository**: [anpr_demo_stream](https://github.com/Y3454R/anpr_demo_stream.git)
+
+- Contains `imageA.jpg` and `imageB.jpeg` for creating the demo RTMP stream
 
 ## Prerequisites
 
@@ -15,14 +21,41 @@ Complete guide for setting up RTMP streaming with MediaMTX and ffmpeg.
    ```
 
 2. **MediaMTX** server
-   - Download from: https://github.com/bluenviron/mediamtx
-   - Or build from source
+
+   **Option A: Download Pre-built Binary (Recommended)**
+
+   ```bash
+   # macOS
+   wget https://github.com/bluenviron/mediamtx/releases/latest/download/mediamtx_v1.5.1_darwin_amd64.zip
+   unzip mediamtx_v1.5.1_darwin_amd64.zip
+
+   # Ubuntu/Linux (amd64)
+   wget https://github.com/bluenviron/mediamtx/releases/latest/download/mediamtx_v1.5.1_linux_amd64.tar.gz
+   tar -xzf mediamtx_v1.5.1_linux_amd64.tar.gz
+   ```
+
+   **Option B: Clone and Build from Source**
+
+   ```bash
+   git clone https://github.com/bluenviron/mediamtx.git
+   cd mediamtx
+   make
+   ```
+
+   Then run: `./mediamtx`
 
 ## Quick Start
 
+### 0. Clone the Demo Images Repository
+
+```bash
+git clone https://github.com/Y3454R/anpr_demo_stream.git
+cd anpr_demo_stream
+```
+
 ### 1. Create Video Content
 
-Create a looping video from images:
+Create a looping video from the demo images:
 
 ```bash
 ffmpeg \
