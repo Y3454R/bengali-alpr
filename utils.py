@@ -53,7 +53,7 @@ def detect_and_extract_lp_text(path, show_cropped_image=True):
     detection_result = detect_license_plate(img)
     if detection_result.boxes.xyxy.shape[0] == 0:
         return None, None
-    bbox = detection_result.boxes.data.numpy()
+    bbox = detection_result.boxes.data.cpu().numpy()
     xmin, ymin = bbox[0][:2].astype(int)
     xmax, ymax = bbox[0][2:4].astype(int)
     cropped_img = img[ymin:ymax, xmin:xmax]
